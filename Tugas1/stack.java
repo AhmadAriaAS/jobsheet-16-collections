@@ -1,0 +1,90 @@
+package Tugas1;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class stack {
+    static Scanner sc = new Scanner(System.in);
+    String id, tittle, year, director;
+
+    stack(String id, String tittle, String year, String director) {
+        this.id = id;
+        this.tittle = tittle;
+        this.year = year;
+        this.director = director;
+    }
+
+    stack() {
+    }
+
+    public static void main(String[] args) {
+        Stack<stack> stk = new Stack<>();
+        stack data = new stack();
+
+        do {
+            menu();
+            System.out.println("Pilih :");
+            int cek = sc.nextInt();
+            sc.nextLine();
+
+            switch (cek) {
+                case 1:
+                    stk.push(add());
+                    break;
+
+                case 2:
+                    data = stk.pop();
+                    System.out.printf("Film{ID Film=%s, Judul Film=%s, Tahun Tayang=%s, Director:%s}\n", data.id,
+                            data.tittle,
+                            data.year, data.director);
+                    break;
+
+                case 3:
+                    data = stk.peek();
+                    System.out.printf("Film{ID Film=%s, Judul Film=%s, Tahun Tayang=%s, Director:%s}\n", data.id,
+                            data.tittle,
+                            data.year, data.director);
+                    break;
+
+                case 4:
+                    for (stack dt : stk) {
+                        System.out.printf("Film{ID Film=%s, Judul Film=%s, Tahun Tayang=%s, Director:%s}\n", dt.id,
+                                dt.tittle,
+                                dt.year, dt.director);
+                    }
+                    break;
+
+                case 5:
+                    System.exit(0);
+                    break;
+
+                default:
+                    break;
+            }
+
+        } while (true);
+    }
+
+    public static void menu() {
+        System.out.println("====================================");
+        System.out.println("Data Film Layar Lebar Sepanjang Masa");
+        System.out.println("====================================");
+        System.out.println();
+        System.out.println(
+                "1. Input Judul Film\n2. Hapus Data Film Teratas\n3. Cek Judul Film Teratas\n4. Info Semua Judul Film\n5. Keluar");
+        System.out.println("====================================");
+    }
+
+    public static stack add() {
+        System.out.println("ID Film\t\t: ");
+        String id = sc.nextLine();
+        System.out.println("Judul Film\t: ");
+        String judul = sc.nextLine();
+        System.out.println("Tahun Tayang\t: ");
+        String year = sc.nextLine();
+        System.out.println("Director\t\t: ");
+        String direct = sc.nextLine();
+        stack stk = new stack(id, judul, year, direct);
+        return stk;
+    }
+}
