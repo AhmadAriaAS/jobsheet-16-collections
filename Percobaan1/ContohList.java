@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ContohList {
+   @SuppressWarnings("unchecked")
    public static void main(String[] args) {
       List l = new ArrayList();
       l.add(1);
