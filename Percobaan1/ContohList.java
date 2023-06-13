@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ContohList {
    public static void main(String[] args) {
-        List<integer> l = new ArrayList();
+      List l = new ArrayList();
         l.add(1);
         l.add(2);
         l.add(3);
@@ -29,6 +29,5 @@ public class ContohList {
         names.set(0, "My kid");
         System.out.printf("Elemen 0 : %s total elemen : %s elemen terakhir : %sn", names.get(0), names.size(), names.get(names.size()-1));
         System.out.println("Names : " + names.toString());
-
    } 
 }
