@@ -67,6 +67,7 @@ public class Main {
         System.out.println("DAFTAR NILAI MAHASISWA");
         System.out.println("*********************************************************************");
         System.out.println("Nim\t\tNama\t\tMata Kuliah\t\t\t\tSks\tNilai");
+
         for (Nilai nilai : arrayList) {
             System.out.printf("%-13s %-13s %-44s %-5s   %s\n", nilai.mhs.Nim, nilai.mhs.name, nilai.mk.name_Mk,
                     nilai.mk.sks, nilai.nilai);
@@ -76,7 +77,9 @@ public class Main {
 
     static void search(String data) {
         System.out.println("Nim\t\tNama\t\tMata Kuliah\t\t\t\tSks\tNilai");
+
         for (Nilai nilai : arrayList) {
+
             if (nilai.mhs.Nim.equals(data)) {
                 System.out.printf("%-13s %-13s %-44s %-5s   %s\n", nilai.mhs.Nim, nilai.mhs.name, nilai.mk.name_Mk,
                         nilai.mk.sks, nilai.nilai);
@@ -118,24 +121,41 @@ public class Main {
                     break;
 
                 case 2:
-                    print();
+                    if (arrayList.isEmpty()) {
+                        System.out.println("Data Kosong");
+
+                    } else {
+                        print();
+                    }
                     break;
 
                 case 3:
-                    print();
-                    System.out.print("Masukkan data Mahasiswa[Nim] : ");
-                    search(sc.nextLine());
+                    if (arrayList.isEmpty()) {
+                        System.out.println("Data Kosong");
+
+                    } else {
+                        print();
+                        System.out.print("Masukkan data Mahasiswa[Nim] : ");
+                        search(sc.nextLine());
+                    }
                     break;
 
                 case 4:
-                    sort();
-                    print();
+                    if (arrayList.isEmpty()) {
+                        System.out.println("Data Kosong");
+
+                    } else {
+                        sort();
+                        print();
+                    }
                     break;
 
                 case 5:
                     System.exit(0);
                     break;
+
                 default:
+                    System.exit(0);
                     break;
             }
 
