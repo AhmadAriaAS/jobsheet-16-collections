@@ -26,12 +26,13 @@ public class Main {
         String kd = sc.nextLine();
         System.out.print("Nilai\t: ");
         Double ni = sc.nextDouble();
+        sc.nextLine();
+
         System.out.println("\nDAFTAR MAHASISWA");
         System.out.println("***********************************************");
-        System.out.println("NIM\t\t\tNama\t\t\tTelf");
-
+        System.out.println("NIM\t\tNama\t\tTelf");
         for (Mahasiswa mahasiswa : mhs) {
-            System.out.printf("%-18s %-18s %-18s\n", mahasiswa.Nim, mahasiswa.name, mahasiswa.telf);
+            System.out.printf("%-15s %-15s %-15s\n", mahasiswa.Nim, mahasiswa.name, mahasiswa.telf);
         }
         System.out.print("Pilih Mahasiswa by NIM: ");
         String kode = sc.nextLine();
@@ -43,9 +44,10 @@ public class Main {
         }
 
         System.out.println("\nDAFTAR MATA KULIAH");
-        System.out.println("***********************************************");
+        System.out.println("Kode\t\tMata Kode\t\t\tSKS");
+        System.out.println("************************************************************");
         for (Mk mat : mk) {
-            System.out.printf("%-18s %-18s %-18s", mat.kode, mat.name_Mk, mat.sks);
+            System.out.printf("%-13s %-42s %-18s\n", mat.kode, mat.name_Mk, mat.sks);
         }
 
         System.out.print("Pilih MK by kode: ");
@@ -58,6 +60,35 @@ public class Main {
 
         Nilai nilai = new Nilai(ni, mhs[index], mk[index2]);
         arrayList.add(nilai);
+        System.out.println();
+    }
+
+    static void print() {
+        System.out.println("DAFTAR NILAI MAHASISWA");
+        System.out.println("*********************************************************************");
+        System.out.println("Nim\t\tNama\t\tMata Kuliah\t\t\t\tSks\tNilai");
+        for (Nilai nilai : arrayList) {
+            System.out.printf("%-13s %-13s %-44s %-5s   %s\n", nilai.mhs.Nim, nilai.mhs.name, nilai.mk.name_Mk,
+                    nilai.mk.sks, nilai.nilai);
+        }
+        System.out.println();
+    }
+
+    static void search(String data) {
+        System.out.println("Nim\t\tNama\t\tMata Kuliah\t\t\t\tSks\tNilai");
+        for (Nilai nilai : arrayList) {
+            if (nilai.mhs.Nim.equals(data)) {
+                System.out.printf("%-13s %-13s %-44s %-5s   %s\n", nilai.mhs.Nim, nilai.mhs.name, nilai.mk.name_Mk,
+                        nilai.mk.sks, nilai.nilai);
+                System.out.printf("Total SKS %s telah diambil\n", nilai.mk.sks);
+                break;
+            }
+        }
+        System.out.println();
+    }
+
+    static void sort() {
+        arrayList.sort((n1, n2) -> Double.compare(n2.nilai, n1.nilai));
     }
 
     public static void main(String[] args) {
@@ -75,9 +106,7 @@ public class Main {
         mk[3] = new Mk("00004", "Praktikum Algoritma dan Struktur Data", "3");
         mk[4] = new Mk("00005", "Praktikum Algoritma dan Pemrograman", "3");
 
-        do
-
-        {
+        do {
             menu();
             System.out.print("Pilih : ");
             int cek = sc.nextInt();
@@ -85,9 +114,27 @@ public class Main {
 
             switch (cek) {
                 case 1:
-
+                    add();
                     break;
 
+                case 2:
+                    print();
+                    break;
+
+                case 3:
+                    print();
+                    System.out.print("Masukkan data Mahasiswa[Nim] : ");
+                    search(sc.nextLine());
+                    break;
+
+                case 4:
+                    sort();
+                    print();
+                    break;
+
+                case 5:
+                    System.exit(0);
+                    break;
                 default:
                     break;
             }
