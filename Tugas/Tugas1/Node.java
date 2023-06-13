@@ -1,4 +1,4 @@
-package Tugas;
+package Tugas.Tugas1;
 
 public class Node {
     private int id;
