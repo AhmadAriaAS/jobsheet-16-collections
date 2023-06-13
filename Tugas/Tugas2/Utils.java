@@ -15,7 +15,7 @@ public class Utils {
         this.students = new ArrayList<>();
         this.subjects = new ArrayList<>();
         this.scores = new ArrayList<>();
-        this.nim = 2001;
+        this.nim = 20001;
     }
 
     public int incrementNilai() {
@@ -92,20 +92,23 @@ public class Utils {
                 idx = students.indexOf(nodeMahasiswa);
         }
 
-        System.out.printf("%-20s %-20s %-20s", "NIM", "Nama", "Telf");
+        System.out.printf("%-20s %-20s %-20s%n", "NIM", "Nama", "Telf");
 
-        System.out.printf("%-20s %-20s %-20s", students.get(idx).getName(),
+        System.out.printf("%-20s %-20s %-20s%n", students.get(idx).getName(),
                 students.get(idx).getNim(), students.get(idx).getPhone());
+
+        System.out.println();
     }
 
     public void printStudents() {
 
-        System.out.printf("%-20s %-20s %-20s", "NIM", "Nama", "Telf");
+        System.out.printf("%-20s %-20s %-20s%n", "NIM", "Nama", "Telf");
         for (NodeMahasiswa nodeMahasiswa : students) {
 
-            System.out.printf("%-20s %-20s %-20s", nodeMahasiswa.getName(),
+            System.out.printf("%-20s %-20s %-20s%n", nodeMahasiswa.getName(),
                     nodeMahasiswa.getNim(), nodeMahasiswa.getPhone());
         }
+        System.out.println();
 
     }
     // -----------------------------------------------------------------------------------------------------------------
@@ -142,14 +145,17 @@ public class Utils {
                     nodedMatkul.getId());
             subjects.remove(nodedMatkul);
         }
+
+        System.out.println();
     }
 
     public void printMatkul() {
-        System.out.printf("%-20s %-20s %-20s", "Kode", "Mata Kuliah", "SKS");
+        System.out.printf("%-20s %-50s %-20s%n", "Kode", "Mata Kuliah", "SKS");
         for (NodedMatkul nodedMatkul : subjects) {
-            System.out.printf("00%-20s %-20s %-20s", nodedMatkul.getId(),
+            System.out.printf("00%-20s %-50s %-20s%n", nodedMatkul.getId(),
                     nodedMatkul.getMatkul(), nodedMatkul.getSks());
         }
+        System.out.println();
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -204,7 +210,7 @@ public class Utils {
                 lst.add(nodeNilai);
         }
 
-        System.out.printf("%-20s %-20s %-20s %-20s %-20s", "NIM", "Nama", "Mata Kuliah", "SKS", "Nilai");
+        System.out.printf("%-20s %-20s %-50s %-20s %-20s%n", "NIM", "Nama", "Mata Kuliah", "SKS", "Nilai");
 
         for (NodeNilai nodeNilai : lst) {
 
@@ -221,7 +227,7 @@ public class Utils {
                     idxSubject = subjects.indexOf(nodedMatkul);
             }
 
-            System.out.printf("%-20s %-20s %-20s %-20s %-20s",
+            System.out.printf("%-20s %-20s %-50s %-20s %-20s%n",
                     students.get(idxStudent).getNim(),
                     students.get(idxStudent).getName(),
                     subjects.get(idxSubject).getMatkul(),
@@ -229,10 +235,11 @@ public class Utils {
                     nodeNilai.getNilai());
 
         }
+        System.out.println();
     }
 
     public void printScores() {
-        System.out.printf("%-20s %-20s %-20s %-20s %-20s", "NIM", "Nama", "Mata Kuliah", "SKS", "Nilai");
+        System.out.printf("%-20s %-20s %-50s %-20s %-20s%n", "NIM", "Nama", "Mata Kuliah", "SKS", "Nilai");
 
         for (NodeNilai nodeNilai : scores) {
 
@@ -249,7 +256,7 @@ public class Utils {
                     idxSubject = subjects.indexOf(nodedMatkul);
             }
 
-            System.out.printf("%-20s %-20s %-20s %-20s %-20s",
+            System.out.printf("%-20s %-20s %-50s %-20s %-20s%n",
                     students.get(idxStudent).getNim(),
                     students.get(idxStudent).getName(),
                     subjects.get(idxSubject).getMatkul(),
@@ -257,5 +264,6 @@ public class Utils {
                     nodeNilai.getNilai());
 
         }
+        System.out.println();
     }
 }
