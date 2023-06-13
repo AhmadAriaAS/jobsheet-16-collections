@@ -56,9 +56,7 @@ public class FilmMain {
     }
 
     public static void hapusDataFilmTeratas() {
-        System.out.println("Film{ID Film=" + stack.peek().idFilm + ", Judul Film=" + stack.peek().judulFilm
-                + ", Tahun Tayang="
-                + stack.peek().tahunTayang + ", Director:" + stack.peek().director + "}");
+        cekJudulFilmTeratas();
         stack.pop();
     }
 
