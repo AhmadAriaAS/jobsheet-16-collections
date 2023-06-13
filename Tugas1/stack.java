@@ -29,28 +29,44 @@ public class stack {
 
             switch (cek) {
                 case 1:
-                    stk.push(add());
+                    stk.push(data.add());
                     break;
 
                 case 2:
-                    data = stk.pop();
-                    System.out.printf("Film{ID Film=%s, Judul Film=%s, Tahun Tayang=%s, Director:%s}\n", data.id,
-                            data.tittle,
-                            data.year, data.director);
+                    if (stk.isEmpty()) {
+                        System.out.println("Data kosong");
+
+                    } else {
+                        data = stk.pop();
+                        System.out.printf("Film{ID Film=%s, Judul Film=%s, Tahun Tayang=%s, Director:%s}\n", data.id,
+                                data.tittle,
+                                data.year, data.director);
+                    }
                     break;
 
                 case 3:
-                    data = stk.peek();
-                    System.out.printf("Film{ID Film=%s, Judul Film=%s, Tahun Tayang=%s, Director:%s}\n", data.id,
-                            data.tittle,
-                            data.year, data.director);
+                    if (stk.isEmpty()) {
+                        System.out.println("Data Kosong");
+
+                    } else {
+                        data = stk.peek();
+                        System.out.printf("Film{ID Film=%s, Judul Film=%s, Tahun Tayang=%s, Director:%s}\n", data.id,
+                                data.tittle,
+                                data.year, data.director);
+                    }
                     break;
 
                 case 4:
-                    for (stack dt : stk) {
-                        System.out.printf("Film{ID Film=%s, Judul Film=%s, Tahun Tayang=%s, Director:%s}\n", dt.id,
-                                dt.tittle,
-                                dt.year, dt.director);
+                    if (stk.isEmpty()) {
+                        System.out.println("Data kosong");
+
+                    } else {
+                        for (int i = stk.size() - 1; i >= 0; i--) {
+                            System.out.printf("Film{ID Film=%s, Judul Film=%s, Tahun Tayang=%s, Director:%s}\n",
+                                    stk.get(i).id,
+                                    stk.get(i).tittle,
+                                    stk.get(i).year, stk.get(i).director);
+                        }
                     }
                     break;
 
@@ -75,14 +91,14 @@ public class stack {
         System.out.println("====================================");
     }
 
-    public static stack add() {
+    public stack add() {
         System.out.println("ID Film\t\t: ");
         String id = sc.nextLine();
         System.out.println("Judul Film\t: ");
         String judul = sc.nextLine();
         System.out.println("Tahun Tayang\t: ");
         String year = sc.nextLine();
-        System.out.println("Director\t\t: ");
+        System.out.println("Director\t: ");
         String direct = sc.nextLine();
         stack stk = new stack(id, judul, year, direct);
         return stk;
