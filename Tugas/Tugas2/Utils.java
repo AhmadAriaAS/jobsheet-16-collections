@@ -18,6 +18,18 @@ public class Utils {
         this.nim = 2001;
     }
 
+    public int incrementNilai() {
+        return idNilai++;
+    }
+
+    public int incrementMatkul() {
+        return idMatkul++;
+    }
+
+    public int incrementNim() {
+        return nim++;
+    }
+
     // Students Section Code
     public void addStudent(NodeMahasiswa data) {
         students.add(data);
@@ -132,6 +144,14 @@ public class Utils {
         }
     }
 
+    public void printMatkul() {
+        System.out.printf("%-20s %-20s %-20s", "Kode", "Mata Kuliah", "SKS");
+        for (NodedMatkul nodedMatkul : subjects) {
+            System.out.printf("00%-20s %-20s %-20s", nodedMatkul.getId(),
+                    nodedMatkul.getMatkul(), nodedMatkul.getSks());
+        }
+    }
+
     // -----------------------------------------------------------------------------------------------------------------
     // Scores Section Code
     public void addScore(NodeNilai data) {
@@ -148,7 +168,94 @@ public class Utils {
                 data.getNilai());
     }
 
-    public void removeScore(String id, String nim, String matkul) {
-        
+    public void removeScore(String nim, String matkul) {
+        String idMatkul = null;
+        String studentsName = null;
+
+        for (NodeMahasiswa nodeMahasiswa : students) {
+            if (nodeMahasiswa.getNim().equalsIgnoreCase(nim)) {
+                studentsName = nodeMahasiswa.getName();
+                break;
+            }
+        }
+
+        for (NodedMatkul nodedMatkul : subjects) {
+            if (nodedMatkul.getMatkul().equalsIgnoreCase(matkul)) {
+                idMatkul = nodedMatkul.getId();
+                break;
+            }
+        }
+
+        for (NodeNilai nodeNilai : scores) {
+            if (nodeNilai.getIdMatkul().equalsIgnoreCase(idMatkul)
+                    && nodeNilai.getNim().equalsIgnoreCase(studentsName)) {
+                scores.remove(nodeNilai);
+                System.out.printf("Mahasiswa %s pada Mata Kuliah %s telah dihapus!%n", studentsName,
+                        matkul);
+            }
+        }
+    }
+
+    public void getScore(String matkul) {
+        List<NodeNilai> lst = new ArrayList<>();
+
+        for (NodeNilai nodeNilai : scores) {
+            if (nodeNilai.getIdMatkul().equalsIgnoreCase(matkul))
+                lst.add(nodeNilai);
+        }
+
+        System.out.printf("%-20s %-20s %-20s %-20s %-20s", "NIM", "Nama", "Mata Kuliah", "SKS", "Nilai");
+
+        for (NodeNilai nodeNilai : lst) {
+
+            int idxStudent = -1;
+            int idxSubject = -1;
+
+            for (NodeMahasiswa nodeMahasiswa : students) {
+                if (nodeMahasiswa.getNim().equals(nodeNilai.getNim()))
+                    idxStudent = students.indexOf(nodeMahasiswa);
+            }
+
+            for (NodedMatkul nodedMatkul : subjects) {
+                if (nodedMatkul.getId().equalsIgnoreCase(nodeNilai.getIdMatkul()))
+                    idxSubject = subjects.indexOf(nodedMatkul);
+            }
+
+            System.out.printf("%-20s %-20s %-20s %-20s %-20s",
+                    students.get(idxStudent).getNim(),
+                    students.get(idxStudent).getName(),
+                    subjects.get(idxSubject).getMatkul(),
+                    subjects.get(idxSubject).getSks(),
+                    nodeNilai.getNilai());
+
+        }
+    }
+
+    public void printScores() {
+        System.out.printf("%-20s %-20s %-20s %-20s %-20s", "NIM", "Nama", "Mata Kuliah", "SKS", "Nilai");
+
+        for (NodeNilai nodeNilai : scores) {
+
+            int idxStudent = -1;
+            int idxSubject = -1;
+
+            for (NodeMahasiswa nodeMahasiswa : students) {
+                if (nodeMahasiswa.getNim().equals(nodeNilai.getNim()))
+                    idxStudent = students.indexOf(nodeMahasiswa);
+            }
+
+            for (NodedMatkul nodedMatkul : subjects) {
+                if (nodedMatkul.getId().equalsIgnoreCase(nodeNilai.getIdMatkul()))
+                    idxSubject = subjects.indexOf(nodedMatkul);
+            }
+
+            System.out.printf("%-20s %-20s %-20s %-20s %-20s",
+                    students.get(idxStudent).getNim(),
+                    students.get(idxStudent).getName(),
+                    subjects.get(idxSubject).getMatkul(),
+                    subjects.get(idxSubject).getSks(),
+                    nodeNilai.getNilai());
+
+        }
     }
 }
