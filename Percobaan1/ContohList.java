@@ -12,10 +12,12 @@ public class ContohList {
         l.add(3);
         l.add("Cireng");
         System.out.printf("Elemen 0 : %d total elemen : %d elemen terakhir : %sn", l.get(0), l.size(), l.get(l.size()-1));
+        System.out.println("");
 
         l.add(4);
         l.remove(0);
         System.out.printf("Elemen 0 : %d total elemen : %d elemen terakhir : %sn", l.get(0), l.size(), l.get(l.size()-1));
+        System.out.println("");
 
         List<String> names = new LinkedList<>();
         names.add("Noureen");
@@ -25,9 +27,12 @@ public class ContohList {
         names.add("AL-Qarni");
 
         System.out.printf("Elemen 0 : %s total elemen : %s elemen terakhir : %sn", names.get(0), names.size(), names.get(names.size()-1));
-        
+        System.out.println("");
+
         names.set(0, "My kid");
         System.out.printf("Elemen 0 : %s total elemen : %s elemen terakhir : %sn", names.get(0), names.size(), names.get(names.size()-1));
+        System.out.println("");
         System.out.println("Names : " + names.toString());
+        System.out.println("");
    } 
 }
