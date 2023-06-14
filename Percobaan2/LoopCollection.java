@@ -2,10 +2,16 @@ package Percobaan2;
 
 import java.util.Iterator;
 import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 public class LoopCollection {
     public static void main(String[] args) {
         Stack<String> fruits = new Stack<>();
+
+        // pertanyaan no 4
+        // List<String> fruits = new ArrayList<>();
+
         fruits.push("Banana");
         fruits.add("Orange");
         fruits.add("Watermelon");
@@ -22,8 +28,9 @@ public class LoopCollection {
             System.out.printf("%s ", fruits.pop());
         }
 
-        fruits.push("Melon");
-        fruits.push("Durian");
+        // fruits.push("Melon");
+        // fruits.push("Durian");
+
         System.out.println("");
         for (Iterator<String> it = fruits.iterator(); it.hasNext();) {
             String fruit = it.next();

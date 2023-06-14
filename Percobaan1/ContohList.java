@@ -6,16 +6,32 @@ import java.util.List;
 
 public class ContohList {
    public static void main(String[] args) {
-      List l = new ArrayList();
+      // List l = new ArrayList();
+      // l.add(1);
+      // l.add(2);
+      // l.add(3);
+      // l.add("Cireng");
+      // System.out.printf("Elemen 0 : %d total elemen : %d elemen terakhir : %s", l.get(0), l.size(),
+      //       l.get(l.size() - 1));
+      // System.out.println("");
+
+      // l.add(4);
+      // l.remove(0);
+      // System.out.printf("Elemen 0 : %d total elemen : %d elemen terakhir : %s", l.get(0), l.size(),
+      //       l.get(l.size() - 1));
+      // System.out.println("");
+
+      // pertanyaan no 2
+      List<Integer> l = new ArrayList<>();
       l.add(1);
       l.add(2);
       l.add(3);
-      l.add("Cireng");
+      l.add(4);
       System.out.printf("Elemen 0 : %d total elemen : %d elemen terakhir : %s", l.get(0), l.size(),
             l.get(l.size() - 1));
       System.out.println("");
 
-      l.add(4);
+      l.add(5);
       l.remove(0);
       System.out.printf("Elemen 0 : %d total elemen : %d elemen terakhir : %s", l.get(0), l.size(),
             l.get(l.size() - 1));
