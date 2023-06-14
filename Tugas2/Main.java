@@ -21,19 +21,24 @@ public class Main {
 
     static void add() {
         int index = 0, index2 = 0;
+        
         System.out.println("Masukkan Data");
         System.out.print("Kode\t: ");
         String kd = sc.nextLine();
+        
         System.out.print("Nilai\t: ");
         Double ni = sc.nextDouble();
+       
         sc.nextLine();
 
         System.out.println("\nDAFTAR MAHASISWA");
         System.out.println("***********************************************");
         System.out.println("NIM\t\tNama\t\tTelf");
+        
         for (Mahasiswa mahasiswa : mhs) {
             System.out.printf("%-15s %-15s %-15s\n", mahasiswa.Nim, mahasiswa.name, mahasiswa.telf);
         }
+
         System.out.print("Pilih Mahasiswa by NIM: ");
         String kode = sc.nextLine();
 
@@ -46,12 +51,14 @@ public class Main {
         System.out.println("\nDAFTAR MATA KULIAH");
         System.out.println("Kode\t\tMata Kode\t\t\tSKS");
         System.out.println("************************************************************");
+        
         for (Mk mat : mk) {
             System.out.printf("%-13s %-42s %-18s\n", mat.kode, mat.name_Mk, mat.sks);
         }
 
         System.out.print("Pilih MK by kode: ");
         String code = sc.nextLine();
+        
         for (int i = 0; i < mk.length; i++) {
             if (mk[i].kode.equals(code)) {
                 index2 = i;
@@ -59,6 +66,7 @@ public class Main {
         }
 
         Nilai nilai = new Nilai(ni, mhs[index], mk[index2]);
+       
         arrayList.add(nilai);
         System.out.println();
     }
@@ -72,6 +80,7 @@ public class Main {
             System.out.printf("%-13s %-13s %-44s %-5s   %s\n", nilai.mhs.Nim, nilai.mhs.name, nilai.mk.name_Mk,
                     nilai.mk.sks, nilai.nilai);
         }
+        
         System.out.println();
     }
 
