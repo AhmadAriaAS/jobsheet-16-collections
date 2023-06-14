@@ -1,4 +1,4 @@
-package Tugas1Zaki;
+package Tugas1;
 
 import java.util.Stack;
 import java.util.Scanner;
