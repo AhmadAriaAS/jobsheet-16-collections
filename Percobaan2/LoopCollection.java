@@ -18,6 +18,9 @@ public class LoopCollection {
         fruits.add("Leci");
         fruits.push("Salak");
 
+        fruits.pop();
+        fruits.add("Strawberry");
+
         for (String fruit : fruits) {
             System.out.printf("%s ", fruit);
         }

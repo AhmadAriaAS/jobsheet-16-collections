@@ -1,4 +1,4 @@
-package Tugas2;
+package Tugas2Zaki;
 
 public class matakuliah {
     String kode, namaMk;
