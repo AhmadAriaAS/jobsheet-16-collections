@@ -1,4 +1,4 @@
-package Tugas1;
+package Tugas1zaki;
 
 public class film {
     String idFilm, tittle, year, director;
