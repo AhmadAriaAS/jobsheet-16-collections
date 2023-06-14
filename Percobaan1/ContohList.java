@@ -43,11 +43,7 @@ public class ContohList {
       // pertanyaan no 3
       LinkedList<String> names = new LinkedList<>();
 
-      names.add("Noureen");
-      names.add("Akhleema");
-      names.add("Shannum");
-      names.add("Uwais");
-      names.add("AL-Qarni");
+
 
       System.out.printf("Elemen 0 : %s total elemen : %s elemen terakhir : %sn", names.get(0), names.size(),
             names.get(names.size() - 1));

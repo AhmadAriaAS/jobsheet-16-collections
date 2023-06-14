@@ -8,10 +8,10 @@ public class Mahasiswa {
     }
 
     public Mahasiswa(String nim, String nama, String notelp) {
-        this.nim = nim;
-        this.nama = nama;
-        this.notelp = notelp;
-    }
+    String nim;
+    String nama;
+    String notelp;
+
 
     @Override
     public String toString() {
