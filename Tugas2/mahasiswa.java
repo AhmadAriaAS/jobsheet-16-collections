@@ -1,11 +1,11 @@
 package Tugas2;
 
-public class mahasiswa {
-    String nim, name, phone;
+public class Mahasiswa {
+    String name, Nim, telf;
 
-    public mahasiswa(String nim, String name, String phone) {
-        this.nim = nim;
+    Mahasiswa(String name, String Nim, String telf) {
         this.name = name;
-        this.phone = phone;
+        this.Nim = Nim;
+        this.telf = telf;
     }
 }
