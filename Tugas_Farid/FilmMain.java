@@ -56,10 +56,8 @@ public class FilmMain {
     }
 
     public static void hapusDataFilmTeratas() {
-        // stack.pop();
-        System.out.println("Film{ID Film=" + stack.pop().idFilm + ", Judul Film=" + stack.pop().judulFilm
-                + ", Tahun Tayang="
-                + stack.pop().tahunTayang + ", Director:" + stack.pop().director + "}");
+        cekJudulFilmTeratas();
+        stack.pop();
     }
 
     public static void main(String[] args) {
@@ -71,6 +69,8 @@ public class FilmMain {
                     System.out.println();
                     break;
                 case 2:
+                    hapusDataFilmTeratas();
+                    System.out.println();
                     break;
                 case 3:
                     cekJudulFilmTeratas();
